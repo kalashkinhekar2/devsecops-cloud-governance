@@ -22,3 +22,9 @@ jobs:
         run: |
           cd backend
           npm install
+
+      - name: Install Semgrep
+        run: pip install semgrep
+
+      - name: Run Semgrep SAST Scan
+        run: semgrep --config=auto .
