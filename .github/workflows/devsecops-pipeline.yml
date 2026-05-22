@@ -36,3 +36,15 @@ jobs:
 
       - name: Run Gitleaks Secret Scan  #Secret Detection
         uses: gitleaks/gitleaks-action@v2
+
+      - name: Build Docker Image
+        run: |
+          cd backend
+          docker build -t governance-backend .
+
+      - name: Run Trivy Container Scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: governance-backend
+          severity: HIGH,CRITICAL
+          exit-code: 0  
