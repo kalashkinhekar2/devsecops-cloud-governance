@@ -48,3 +48,9 @@ jobs:
           image-ref: governance-backend
           severity: HIGH,CRITICAL
           exit-code: 0
+
+
+      - name: Run Checkov IaC Scan
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: .
