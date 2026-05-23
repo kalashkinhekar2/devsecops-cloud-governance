@@ -1,4 +1,6 @@
 name: DevSecOps Pipeline
+permissions:
+  contents: read
 
 on:
   push:

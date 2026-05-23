@@ -10,4 +10,11 @@ COPY . .
 
 EXPOSE 8000
 
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
+USER appuser
+
+HEALTHCHECK CMD curl --fail http://localhost:8000 || exit 1
+
+
 CMD ["node", "server.js"]
