@@ -62,8 +62,37 @@ jobs:
 #CD
 
 
+  frontend-checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Frontend Dependencies
+        run: |
+          cd frontend
+          npm install
+
+      - name: Build React Frontend
+        run: |
+          cd frontend
+          npm run build
+
+      - name: Frontend Dependency Scan
+        run: |
+          cd frontend
+          npm audit
+
+
+
   deploy-dev:
-    needs: security-checks
+    needs: [security-checks, frontend-checks]
     runs-on: ubuntu-latest
 
     steps:
