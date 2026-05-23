@@ -55,3 +55,31 @@ jobs:
         with:
           directory: .
           soft_fail: true
+
+
+#CD
+
+
+    deploy-dev:
+    needs: security-checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Development
+        run: echo "Deploying application to DEV environment"
+
+  deploy-staging:
+    needs: deploy-dev
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Staging
+        run: echo "Deploying application to STAGING environment"
+
+  deploy-production:
+    needs: deploy-staging
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Production
+        run: echo "Deploying application to PRODUCTION environment"
