@@ -22,6 +22,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api", requestRoutes);
 
 // MongoDB
+console.log(process.env.MONGO_URI);
+
 mongoose.connect(process.env.MONGO_URI)
 .then(() => {
     console.log("MongoDB Connected");
