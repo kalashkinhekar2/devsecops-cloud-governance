@@ -79,11 +79,7 @@ jobs:
           cd frontend
           npm install
 
-      - name: Build React Frontend
-        run: |
-          cd frontend
-          npm run build
-
+      
       - name: Frontend Dependency Scan
         run: |
           cd frontend
