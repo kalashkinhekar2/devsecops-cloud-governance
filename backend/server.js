@@ -5,6 +5,9 @@ require("dotenv").config();
 
 const app = express();
 
+eval("console.log('unsafe code')"); //SAST Testing 
+
+
 const requestRoutes = require("./routes/requestRoutes");
 const authRoutes = require("./routes/authRoutes");
 
