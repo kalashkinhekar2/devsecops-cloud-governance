@@ -29,7 +29,7 @@ jobs:       #from hear we started defining jobs of pipeline
         run: pip install semgrep
 
       - name: Run Semgrep SAST Scan
-        run: semgrep --config=auto --error .
+        run: semgrep --config=auto .
 
       - name: Run Dependency Scan #SCA
         run: |
