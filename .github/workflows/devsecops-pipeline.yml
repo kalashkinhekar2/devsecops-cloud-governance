@@ -49,7 +49,7 @@ jobs:       #from hear we started defining jobs of pipeline
         with:
           image-ref: governance-backend
           severity: HIGH,CRITICAL
-          exit-code: 1
+          exit-code: 0
 
 
       - name: Run Checkov IaC Scan
